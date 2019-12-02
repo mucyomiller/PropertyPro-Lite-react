@@ -6,10 +6,45 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Property-Pro Lite</title>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+    integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 </head>
 
 <body>
   <div id="root"></div>
 </body>
-
+<script>
+  // Initialize and add the map
+  function initMap() {
+      // The location of kimiroko
+      // TODO: in future release load location dymanically depending on selected advert
+      var kimiroko = {
+          lat: -1.937483,
+          lng: 30.131377
+      };
+      // The map, centered at kimiroko
+      var map = new google.maps.Map(
+          document.getElementById('map'), {
+              zoom: 13,
+              center: kimiroko
+          });
+      //custom maker icon (red flag)
+      var icon = {
+          url: "../asset/images/redflag.svg",
+          scaledSize: new google.maps.Size(50, 50),
+          origin: new google.maps.Point(0, 0), // origin
+          anchor: new google.maps.Point(0, 0) // anchor
+      };
+      // The marker, positioned at kimiroko
+      var marker = new google.maps.Marker({
+          position: kimiroko,
+          map: map,
+          icon: icon
+      });
+  }
+</script>
+<script async defer
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC1FjcV_b8kzMTAUELO9jvtTykrj_WZzUI&callback=initMap">
+</script>
 </html>
